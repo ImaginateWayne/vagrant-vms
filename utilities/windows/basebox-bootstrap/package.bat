@@ -4,10 +4,14 @@ set I=echo [INFO]
 %I% 
 set BASE_BOX=%1
 set VAGRANT_BOX_NAME=%2
-REM default to %SYSTEMDRIVE%\vagrant allow option to specify dir
-set VAGRANT_DIR=%SYSTEMDRIVE%\vagrant
+if "%3" == "" (
+   set VAGRANT_DIR=%SYSTEMDRIVE%\vagrant
+)else (
+   set VAGRANT_DIR=%3
+)
+
 set VAGRANT_BOX=%VAGRANT_DIR%\%VAGRANT_BOX_NAME%.box
-rem vagrant package --base "C:\Users\gibbonsd\VirtualBox VMs\win2008\win2008.vbox" --output c:\vagrant\win2008.box
+vagrant package --base "C:\Users\gibbonsd\VirtualBox VMs\win2008\win2008.vbox" --output c:\vagrant\win2008.box
 
 %I% Creating new Vagrant Box "%VAGRANT_BOX%" from the Virtual Box file "%BASE_BOX%"
 vagrant package --base "%BASE_BOX%" --output "%VAGRANT_BOX%"
