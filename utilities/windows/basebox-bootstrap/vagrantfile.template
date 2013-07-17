@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   # Admin user name and password 
   config.winrm.username = "vagrant" 
   config.winrm.password = "vagrant" 
-  echo config.windows.halt_timeout
+  config.windows.halt_timeout
   # Configure base box parameters 
   #config.vm.box = "vagrant-windows2008r2" 
   #config.vm.box_url = "./vagrant-windows2008r2.box" 

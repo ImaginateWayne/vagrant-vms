@@ -9,7 +9,7 @@ set SETBOXURL=BOXURL
 set REPLACEBOXURL=%2
 set SEARCHTEXT=BOXNAME
 set REPLACETEXT=BATNAME
-del %OUTTEXTFILE%
+if exist %OUTTEXTFILE% del %OUTTEXTFILE%
 
 for /f "tokens=1,* delims=¶" %%A in ( '"type %INTEXTFILE%"') do (
 	set string=%%A
